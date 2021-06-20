@@ -24,7 +24,7 @@ public class Ferreteria {
                 El ciclo se repetirá hasta que no hayan datos para
                 mostrar
                 */
-		do{
+		do {
                         /*
                         Llamamos al método menuPrincipal para mostrar el menú
                         de opciones
@@ -72,7 +72,7 @@ public class Ferreteria {
                             System.out.println ("Opción no válida");
                             break;
 			}
-		} while(false);
+		} while (!false);
 	}
         
         //Definimos el método iniciar para obtener los datos de los productos
@@ -339,15 +339,14 @@ public class Ferreteria {
                         Lista producto = inventario.get(i);
 			if(producto.ID == ID){
                             System.out.println("Ha seleccionado el producto "+producto.nombre);
-                            System.out.println ("Ingrese el número de factura:");
-                            int nFactura = sc.nextInt();
                             System.out.println ("Ingrese el nombre del cliente:");
                             String cliente = sc.next();
                             System.out.println ("Ingrese la cantidad de producto comprada:");
                             int cantProducto = sc.nextInt();
                             
                             Facturas venta = new Facturas();
-                            venta.nFactura = nFactura;
+                            int k=facturas.size()+1;
+                            venta.nFactura = k;
                              venta.nomCliente = cliente;
                             venta.nomProducto = producto.nombre;
                              venta.cant = cantProducto;
@@ -355,7 +354,7 @@ public class Ferreteria {
                              producto.cant = producto.cant - venta.cant;
                              
                             System.out.println("Ha registrado la factura: \n**************************************\n"
-                                    + "Nº de Factura: "+nFactura+"\n"+ "Nombre del cliente: "+cliente+"\n"
+                                    + "Nº de Factura: "+k+"\n"+ "Nombre del cliente: "+cliente+"\n"
                                             + "Producto seleccionado: "+producto.nombre+"\n"
                                             + "Cantidad comprada: "+cantProducto+"\nMonto pagado: "+venta.monto);
                             System.out.println("**************************************");
@@ -366,11 +365,10 @@ public class Ferreteria {
                                 facturas.add(venta);
                                 System.out.println ("Factura añadida correctamente!");
 				return;
-                            } else
+                            } else 
                                 System.out.println ("Ha cancelado el registro de factura");
                                 return;	 
 			}
 		} System.out.println ("¡El ID ingresado no existe!");
         }
 }
-

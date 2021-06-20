@@ -1,3 +1,8 @@
+/*
+Exportar al repositorio:
+git add build/classes/Ferreteria/Ferreteria.class
+git add src/Ferreteria/Ferreteria.java
+*/
 package Ferreteria;
 //Importamos la clase ArrayList para trabajar con inventarios
 import java.util.ArrayList;

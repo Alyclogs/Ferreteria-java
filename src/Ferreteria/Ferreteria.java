@@ -234,13 +234,14 @@ public class Ferreteria {
         public static void agregarProducto(ArrayList<Lista> inventario){
 		 System.out.println ("Ha seleccionado agregar productos");
 		Scanner sc = new Scanner(System.in);
+                Scanner sd = new Scanner(System.in);
 		 System.out.println ("Ingrese el ID del producto:");
 		int ID = sc.nextInt();
-		 System.out.println ("Ingrese el nombre del producto (Importante: Sin espacios):");
-		String nombre = sc.next();
+		 System.out.println ("Ingrese el nombre del producto:");
+		String nombre = sd.nextLine();
 		 System.out.println ("Ingrese el precio unitario del producto:");
-		double precio = sc.nextDouble();
-                 System.out.println ("Ingrese nuevo stock");
+		double precio = sd.nextDouble();
+                 System.out.println ("Ingrese stock");
 		int cant = sc.nextInt();
                 /*
                 Definimos un objeto de la clase Lista al cual llamaremos producto,
@@ -269,7 +270,7 @@ public class Ferreteria {
 			Lista producto = inventario.get(i);
 			if(producto.ID == ID){
 				inventario.remove(i);
-				 System.out.println ("¡Eliminado correctamente!");
+				 System.out.println ("¡Producto eliminado correctamente!");
 				return;
 			}
 		}
@@ -285,6 +286,7 @@ public class Ferreteria {
 		 System.out.println ("Ingrese el ID del producto a modificar:");
 		
 		Scanner sc = new Scanner(System.in);
+                Scanner sd = new Scanner(System.in);
 		int ID = sc.nextInt();
 		for (int i = 0; i < inventario.size(); i++) {
 			Lista producto = inventario.get(i);
@@ -293,7 +295,7 @@ public class Ferreteria {
 				producto.ID = sc.nextInt();
 				
 				 System.out.println ("Ingrese un nuevo nombre de producto");
-				producto.nombre = sc.next();
+				producto.nombre = sd.nextLine();
 				
 				 System.out.println ("Ingrese el precio unitario del producto");
 				producto.precio = sc.nextDouble();
@@ -307,7 +309,6 @@ public class Ferreteria {
 		}
 		 System.out.println ("¡El ID ingresado no existe!");
 	}
-        
                 
         public static void iniFacturas(ArrayList<Facturas> facturas, ArrayList<Lista> inventario) {
             Facturas f1 = new Facturas();
@@ -338,6 +339,7 @@ public class Ferreteria {
                 System.out.println ("Ha seleccionado realizar factura");
                 System.out.println ("Ingrese el ID del producto a vender:");
                 Scanner sc = new Scanner(System.in);
+                Scanner sd = new Scanner(System.in);
 		int ID = sc.nextInt();
                 
 		for (int i = 0; i < inventario.size(); i++) {
@@ -345,10 +347,14 @@ public class Ferreteria {
 			if(producto.ID == ID){
                             System.out.println("Ha seleccionado el producto "+producto.nombre);
                             System.out.println ("Ingrese el nombre del cliente:");
-                            String cliente = sc.next();
+                            String cliente = sd.nextLine();
                             System.out.println ("Ingrese la cantidad de producto comprada:");
                             int cantProducto = sc.nextInt();
                             
+                            if (cantProducto>producto.cant) {
+                                System.out.println("¡No hay esa cantidad en el inventario!");
+                                return;
+                            } else { 
                             Facturas venta = new Facturas();
                             int k=facturas.size()+1;
                             venta.nFactura = k;
@@ -358,12 +364,16 @@ public class Ferreteria {
                             venta.monto = producto.precio * cantProducto;
                              producto.cant = producto.cant - venta.cant;
                              
+                            if (producto.cant<=0) {
+                                producto.cant=0;
+                            }
+                            
                             System.out.println("Ha registrado la factura: \n**************************************\n"
                                     + "Nº de Factura: "+k+"\n"+ "Nombre del cliente: "+cliente+"\n"
                                             + "Producto seleccionado: "+producto.nombre+"\n"
                                             + "Cantidad comprada: "+cantProducto+"\nMonto pagado: "+venta.monto);
                             System.out.println("**************************************");
-                            System.out.println("¿La información ingresada es correcta?");
+                            System.out.println("¿La información ingresada es correcta? (si/no)");
                             String opcion = sc.next();
                             
                             if (opcion.equals("si")) {
@@ -373,7 +383,8 @@ public class Ferreteria {
                             } else 
                                 System.out.println ("Ha cancelado el registro de factura");
                                 return;	 
-			}
+			}}
 		} System.out.println ("¡El ID ingresado no existe!");
         }
+
 }

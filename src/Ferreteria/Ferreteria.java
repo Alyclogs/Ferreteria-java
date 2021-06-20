@@ -1,16 +1,16 @@
 package Ferreteria;
-//Importamos la clase ArrayList para trabajar con arrays
+//Importamos la clase ArrayList para trabajar con inventarios
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ferreteria {
 	public static void main(String[] args) {
                 /*
-                Definimos el array que hace referencia a la clase Lista,
+                Definimos el inventario que hace referencia a la clase Lista,
                 donde se encuentran definidos los atributos modificables
                 del producto
                 */
-		ArrayList<Lista> array = new ArrayList<>();
+		ArrayList<Lista> inventario = new ArrayList<>();
                 ArrayList<Facturas> facturas = new ArrayList<>();
                 /*
                 Llamamos al método iniciar para obtener la lista de
@@ -18,8 +18,8 @@ public class Ferreteria {
                 Llamamos al metodo iniFacturas para obtener la lista
                 de facturas
                 */
-		iniciar(array);
-                iniFacturas(facturas, array);
+		iniciar(inventario);
+                iniFacturas(facturas, inventario);
                 /*
                 El ciclo se repetirá hasta que no hayan datos para
                 mostrar
@@ -41,27 +41,27 @@ public class Ferreteria {
                         */
 			switch (elegir) {
 			case 1:
-                            mostrarLista(array);
+                            mostrarLista(inventario);
                             break;
 				
 			case 2:
-                            agregarProducto(array);
+                            agregarProducto(inventario);
                             break;
 				
 			case 3:
-                            eliminarProducto(array);
+                            eliminarProducto(inventario);
                             break;
 			
 			case 4:
-                            modificarProducto(array);
+                            modificarProducto(inventario);
                             break;
                         
                         case 5:
-                            mostrarFacturas(facturas, array);
+                            mostrarFacturas(facturas, inventario);
                             break;
 			
                         case 6:
-                            realizarFactura(facturas, array);
+                            realizarFactura(facturas, inventario);
                             break;
                             
 			case 7:
@@ -76,7 +76,7 @@ public class Ferreteria {
 	}
         
         //Definimos el método iniciar para obtener los datos de los productos
-	public static void iniciar(ArrayList<Lista> array) {
+	public static void iniciar(ArrayList<Lista> inventario) {
 		Lista p1 = new Lista();
 		p1.ID = 9004;
 		 p1.nombre = "Par de guantes  ";
@@ -167,21 +167,21 @@ public class Ferreteria {
 		p15.precio = 21.7;
                  p15.cant = 13;
 		
-		array.add(p1);
-		array.add(p2);
-		array.add(p3);
-                array.add(p4);
-		array.add(p5);
-		array.add(p6);
-                array.add(p7);
-		array.add(p8);
-		array.add(p9);
-                array.add(p10);
-		array.add(p11);
-		array.add(p12);
-                array.add(p13);
-		array.add(p14);
-		array.add(p15);
+		inventario.add(p1);
+		inventario.add(p2);
+		inventario.add(p3);
+                inventario.add(p4);
+		inventario.add(p5);
+		inventario.add(p6);
+                inventario.add(p7);
+		inventario.add(p8);
+		inventario.add(p9);
+                inventario.add(p10);
+		inventario.add(p11);
+		inventario.add(p12);
+                inventario.add(p13);
+		inventario.add(p14);
+		inventario.add(p15);
 	}
 
         /*
@@ -210,13 +210,13 @@ public class Ferreteria {
         Definimos el método m ostrarLista para mostrar la lista de
         productos
         */
-	public static void mostrarLista(ArrayList<Lista> array){
+	public static void mostrarLista(ArrayList<Lista> inventario){
 		System.out.println();
 		 System.out.println ("========================================================");
 		System.out.println ("ID de producto" + "\t" + "Nombre del producto" + "\t" + "Precio unitario" + "\t\t" + "Stock");
                  
-		for (int i = 0; i < array.size(); i++) {
-			Lista producto = array.get(i);
+		for (int i = 0; i < inventario.size(); i++) {
+			Lista producto = inventario.get(i);
 			System.out.println(producto.ID + "\t\t" + producto.nombre + "\t\t" + producto.precio + "\t"
                                 + "\t" + producto.cant);
 		}
@@ -226,7 +226,7 @@ public class Ferreteria {
         Definimos el método agregarProducto para leer los dato del
         producto ingresados por el usuario
 	*/
-        public static void agregarProducto(ArrayList<Lista> array){
+        public static void agregarProducto(ArrayList<Lista> inventario){
 		 System.out.println ("Ha seleccionado agregar productos");
 		Scanner sc = new Scanner(System.in);
 		 System.out.println ("Ingrese el ID del producto:");
@@ -247,7 +247,7 @@ public class Ferreteria {
 		producto.nombre = nombre;
 		 producto.precio = precio;
                 producto.cant = cant;
-		array.add(producto);
+		inventario.add(producto);
 		 System.out.println ("Producto agregado correctamente!");
 	}
         
@@ -255,15 +255,15 @@ public class Ferreteria {
         Definimos el método eliminarProducto para leer el ID del
         producto que se desea eliminar
 	*/
-        public static void eliminarProducto(ArrayList<Lista> array){
+        public static void eliminarProducto(ArrayList<Lista> inventario){
 		System.out.println ("Ha seleccionado eliminar producto");
 		 System.out.println ("Ingrese el ID del producto:");
 		Scanner sc = new Scanner(System.in);
 		int ID = sc.nextInt();
-		for (int i = 0; i < array.size(); i++) {
-			Lista producto = array.get(i);
+		for (int i = 0; i < inventario.size(); i++) {
+			Lista producto = inventario.get(i);
 			if(producto.ID == ID){
-				array.remove(i);
+				inventario.remove(i);
 				 System.out.println ("¡Eliminado correctamente!");
 				return;
 			}
@@ -275,14 +275,14 @@ public class Ferreteria {
         Definimos el método modificarProducto para modificar
         los datos del producto seleccionado mediante su ID
 	*/
-        public static void modificarProducto(ArrayList<Lista> array){
+        public static void modificarProducto(ArrayList<Lista> inventario){
 		 System.out.println ("Ha seleccionado modificar producto");
 		 System.out.println ("Ingrese el ID del producto a modificar:");
 		
 		Scanner sc = new Scanner(System.in);
 		int ID = sc.nextInt();
-		for (int i = 0; i < array.size(); i++) {
-			Lista producto = array.get(i);
+		for (int i = 0; i < inventario.size(); i++) {
+			Lista producto = inventario.get(i);
 			if(producto.ID == ID){
 				 System.out.println ("Ingrese un nuevo ID:");
 				producto.ID = sc.nextInt();
@@ -304,7 +304,7 @@ public class Ferreteria {
 	}
         
                 
-        public static void iniFacturas(ArrayList<Facturas> facturas, ArrayList<Lista> array) {
+        public static void iniFacturas(ArrayList<Facturas> facturas, ArrayList<Lista> inventario) {
             Facturas f1 = new Facturas();
                 f1.nFactura = 1;
                  f1.nomCliente = "Marco";
@@ -315,7 +315,7 @@ public class Ferreteria {
                 facturas.add(f1);
         }
         
-        public static void mostrarFacturas(ArrayList<Facturas> facturas, ArrayList<Lista> array) {
+        public static void mostrarFacturas(ArrayList<Facturas> facturas, ArrayList<Lista> inventario) {
 		System.out.println();
 		 System.out.println ("========================================================");
 		 System.out.println ("Nro de factura" + "\t" + "Nombre del cliente" + "\t" + "Nombre del producto" + "\t"
@@ -329,14 +329,14 @@ public class Ferreteria {
 	}
         
         
-        public static void realizarFactura(ArrayList<Facturas> facturas, ArrayList<Lista> array) {
+        public static void realizarFactura(ArrayList<Facturas> facturas, ArrayList<Lista> inventario) {
                 System.out.println ("Ha seleccionado realizar factura");
                 System.out.println ("Ingrese el ID del producto a vender:");
                 Scanner sc = new Scanner(System.in);
 		int ID = sc.nextInt();
                 
-		for (int i = 0; i < array.size(); i++) {
-                        Lista producto = array.get(i);
+		for (int i = 0; i < inventario.size(); i++) {
+                        Lista producto = inventario.get(i);
 			if(producto.ID == ID){
                             System.out.println("Ha seleccionado el producto "+producto.nombre);
                             System.out.println ("Ingrese el número de factura:");

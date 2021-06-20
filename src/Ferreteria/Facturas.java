@@ -1,6 +1,7 @@
 
 package Ferreteria;
 
+//Clase que contiene los atributos de facturas
 public class Facturas {
 
 	int nFactura;

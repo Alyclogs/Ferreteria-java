@@ -269,12 +269,18 @@ public class Ferreteria {
 		for (int i = 0; i < inventario.size(); i++) {
 			Lista producto = inventario.get(i);
 			if(producto.ID == ID){
-				inventario.remove(i);
-				 System.out.println ("¡Producto eliminado correctamente!");
+                            System.out.println("¿Está seguro que desea eliminar el producto "+producto.nombre+"?");
+                            String opcion = sc.next();
+                            
+                            if (opcion.equals("si")) {
+                                inventario.remove(i);
+                                System.out.println ("¡Producto eliminado correctamente!");
 				return;
-			}
-		}
-		 System.out.println ("¡El ID ingresado no existe!");
+                            } else {
+                                System.out.println ("Ha cancelado la operación");
+                                return;	 
+			}}
+		} System.out.println ("¡El ID ingresado no existe!");
 	}
         
         /*
@@ -291,6 +297,7 @@ public class Ferreteria {
 		for (int i = 0; i < inventario.size(); i++) {
 			Lista producto = inventario.get(i);
 			if(producto.ID == ID){
+                                System.out.println("Ha seleccionado el producto "+producto.nombre);
 				 System.out.println ("Ingrese un nuevo ID:");
 				producto.ID = sc.nextInt();
 				
@@ -337,7 +344,7 @@ public class Ferreteria {
         
         public static void realizarFactura(ArrayList<Facturas> facturas, ArrayList<Lista> inventario) {
                 System.out.println ("Ha seleccionado realizar factura");
-                System.out.println ("Ingrese el ID del producto a vender:");
+                System.out.println ("Ingrese el ID del producto vendido:");
                 Scanner sc = new Scanner(System.in);
                 Scanner sd = new Scanner(System.in);
 		int ID = sc.nextInt();
@@ -363,10 +370,6 @@ public class Ferreteria {
                              venta.cant = cantProducto;
                             venta.monto = producto.precio * cantProducto;
                              producto.cant = producto.cant - venta.cant;
-                             
-                            if (producto.cant<=0) {
-                                producto.cant=0;
-                            }
                             
                             System.out.println("Ha registrado la factura: \n**************************************\n"
                                     + "Nº de Factura: "+k+"\n"+ "Nombre del cliente: "+cliente+"\n"
@@ -380,11 +383,10 @@ public class Ferreteria {
                                 facturas.add(venta);
                                 System.out.println ("Factura añadida correctamente!");
 				return;
-                            } else 
-                                System.out.println ("Ha cancelado el registro de factura");
+                            } else {
+                                System.out.println ("Ha cancelado la operación");
                                 return;	 
-			}}
+			}}}
 		} System.out.println ("¡El ID ingresado no existe!");
         }
-
 }

@@ -13,17 +13,17 @@ public class Ferreteria {
 
     public static void main(String[] args) {
         /*
-                Definimos el inventario que hace referencia a la clase Lista,
-                donde se encuentran definidos los atributos modificables
-                del producto
+            Definimos el inventario que hace referencia a la clase Lista,
+            donde se encuentran definidos los atributos modificables
+            del producto
          */
         ArrayList<Lista> inventario = new ArrayList<>();
         ArrayList<Facturas> facturas = new ArrayList<>();
         /*
-                Llamamos al método iniciar para obtener la lista de
-                productos.
-                Llamamos al metodo iniFacturas para obtener la lista
-                de facturas
+            Llamamos al método iniciar para obtener la lista de
+            productos.
+            Llamamos al metodo iniFacturas para obtener la lista
+            de facturas
          */
         iniciar(inventario);
         iniFacturas(facturas, inventario);
@@ -33,13 +33,13 @@ public class Ferreteria {
          */
         do {
             /*
-                        Llamamos al método menuPrincipal para mostrar el menú
-                        de opciones
+                Llamamos al método menuPrincipal para mostrar el menú
+                de opciones
              */
             menuPrincipal();
             /*
-                        Llamamos al método elegirFuncion para
-                        permitir al usuario elegir la función del menú
+                Llamamos al método elegirFuncion para
+                permitir al usuario elegir la función del menú
              */
             int elegir = elegirFuncion();
             /*

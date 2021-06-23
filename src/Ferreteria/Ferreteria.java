@@ -1,8 +1,4 @@
-/*
-Exportar al repositorio:
-git add build/classes/Ferreteria/Ferreteria.class
-git add src/Ferreteria/Ferreteria.java
- */
+
 package Ferreteria;
 //Importamos la clase ArrayList para trabajar con arrays
 
@@ -28,8 +24,8 @@ public class Ferreteria {
         iniciar(inventario);
         iniFacturas(facturas, inventario);
         /*
-                El ciclo se repetirá hasta que no hayan datos para
-                mostrar
+            El ciclo se repetirá hasta que no hayan datos para
+            mostrar
          */
         do {
             /*
@@ -43,8 +39,8 @@ public class Ferreteria {
              */
             int elegir = elegirFuncion();
             /*
-                        Según la opción que se elija, se llamará a sus
-                        métodos respectivos
+                Según la opción que se elija, se llamará a sus
+                métodos respectivos
              */
             switch (elegir) {
                 case 1:
@@ -246,9 +242,9 @@ public class Ferreteria {
         System.out.println("Ingrese stock");
         int cant = sc.nextInt();
         /*
-                Definimos un objeto de la clase Lista al cual llamaremos producto,
-                que se encargará de registrar los datos ingresados en la lista de
-                productos
+            Definimos un objeto de la clase Lista al cual llamaremos producto,
+            que se encargará de registrar los datos ingresados en la lista de
+            productos
          */
         Lista producto = new Lista();
         producto.ID = ID;

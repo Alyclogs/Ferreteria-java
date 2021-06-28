@@ -12,7 +12,7 @@ public class MostrarListas {
      */
     public static void mostrarProductos(ArrayList<Productos> inventario) {
         System.out.println();
-        System.out.println("====================== Productos de productos ============================");
+        System.out.println("====================== Lista de productos ============================");
         System.out.println("ID de producto" + "\t" + "Nombre del producto" + "\t" + "Precio unitario" + "\t\t" + "Stock");
 
         for (int i = 0; i < inventario.size(); i++) {
@@ -24,13 +24,13 @@ public class MostrarListas {
 
     public static void mostrarFacturas(ArrayList<Facturas> facturas, ArrayList<Productos> inventario) {
         System.out.println();
-        System.out.println("========================================================");
-        System.out.println("Nro de factura" + "\t" + "Nombre del cliente" + "\t" + "Nombre del producto" + "\t"
-                + "" + "Cantidad comprada" + "\t" + "Monto pagado");
+        System.out.println("================================ Lista de facturas ===================================");
+        System.out.println("Nro de factura" + "\t" + "Cliente" + "\t\t" + "Producto" + "\t"
+                + "\t" + "Cantidad" + "\t" + "Monto pagado");
 
         for (int i = 0; i < facturas.size(); i++) {
             Facturas venta = facturas.get(i);
-            System.out.println(venta.nFactura + "\t\t" + venta.nomCliente + "\t\t\t" + venta.nomProducto + "\t"
+            System.out.println(venta.nFactura + "\t\t" + venta.nomCliente + "\t\t" + venta.nomProducto + "\t"
                     + "\t" + venta.cant + "\t\t" + venta.monto);
         }
     }

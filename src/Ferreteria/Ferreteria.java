@@ -92,8 +92,8 @@ public class Ferreteria {
      */
     public static void menuPrincipal() {
         System.out.println();
-        System.out.println("=========== Bienvenido a la Ferretería Los Castros ===========");
-        System.out.println("1: Productos de productos \n2: Agregar producto \n3: Eliminar producto \n"
+        System.out.println("=========== Bienvenido a la Ferretería Huaycoloro ===========");
+        System.out.println("1: Lista de productos \n2: Agregar producto \n3: Eliminar producto \n"
                 + "4: Modificar producto \n5: Mostrar facturas \n6: Realizar una factura \n7: Salir");
         System.out.println("==============================================================");
         System.out.println("Ingrese el número de función a operar");

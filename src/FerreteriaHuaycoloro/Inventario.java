@@ -14,13 +14,12 @@ public class Inventario {
         producto ingresados por el usuario
      */
     public static void agregarProducto(ArrayList<Productos> inventario) {
-        System.out.println("Ha seleccionado agregar productos");
         Scanner sc = new Scanner(System.in);
-        Scanner sd = new Scanner(System.in);
+        System.out.println("Ha seleccionado agregar productos");
         int ID = leerNumero("Ingrese el ID del producto:");
         String nombre = leerCadena("Ingrese el nombre del producto:");
         System.out.println("Ingrese el precio unitario del producto:");
-        double precio = sd.nextDouble();
+        double precio = sc.nextDouble();
         int cant = leerNumero("Ingrese stock");
         /*
             Definimos un objeto de la clase Productos al cual llamaremos producto,
@@ -67,11 +66,9 @@ public class Inventario {
      */
     public static void modificarProducto(ArrayList<Productos> inventario) {
         System.out.println("Ha seleccionado modificar producto");
-        System.out.println("Ingrese el ID del producto a modificar:");
-
+        int ID = leerNumero("Ingrese el ID del producto a modificar:");
         Scanner sc = new Scanner(System.in);
-        Scanner sd = new Scanner(System.in);
-        int ID = sc.nextInt();
+        
         for (int i = 0; i < inventario.size(); i++) {
             Productos producto = inventario.get(i);
             if (producto.ID == ID) {
@@ -84,8 +81,7 @@ public class Inventario {
                         break;
 
                     case 2:
-                        System.out.println("Ingrese un nuevo nombre de producto");
-                        producto.nombre = sd.nextLine();
+                        producto.nombre = leerCadena("Ingrese un nuevo nombre de producto");
                         break;
 
                     case 3:
@@ -94,8 +90,7 @@ public class Inventario {
                         break;
 
                     case 4:
-                        System.out.println("Ingrese nuevo stock");
-                        producto.cant = sc.nextInt();
+                        producto.cant = leerNumero("Ingrese nuevo stock");
                         break;
 
                     default:

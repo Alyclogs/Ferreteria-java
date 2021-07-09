@@ -1,7 +1,8 @@
 package FerreteriaHuaycoloro;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import static FerreteriaHuaycoloro.Ferreteria.leerNumero;
+import static FerreteriaHuaycoloro.Ferreteria.leerCadena;
 
 public class RealizarFacturas {
 
@@ -10,19 +11,14 @@ public class RealizarFacturas {
 
     public static void realizarFactura(ArrayList<Facturas> facturas, ArrayList<Productos> inventario) {
         System.out.println("Ha seleccionado realizar factura");
-        System.out.println("Ingrese el ID del producto vendido:");
-        Scanner sc = new Scanner(System.in);
-        Scanner sd = new Scanner(System.in);
-        int ID = sc.nextInt();
+        int ID = leerNumero("Ingrese el ID del producto vendido:");
 
         for (int i = 0; i < inventario.size(); i++) {
             Productos producto = inventario.get(i);
             if (producto.ID == ID) {
                 System.out.println("Ha seleccionado el producto " + producto.nombre);
-                System.out.println("Ingrese el nombre del cliente:");
-                String cliente = sd.nextLine();
-                System.out.println("Ingrese la cantidad de producto comprada:");
-                int cantProducto = sc.nextInt();
+                String cliente = leerCadena("Ingrese el nombre del cliente:");
+                int cantProducto = leerNumero("Ingrese la cantidad de producto comprada:");
 
                 if (cantProducto > producto.cant) {
                     System.out.println("¡No hay esa cantidad en el inventario!");
@@ -42,8 +38,7 @@ public class RealizarFacturas {
                             + "Producto seleccionado: " + producto.nombre + "\n"
                             + "Cantidad comprada: " + cantProducto + "\nMonto pagado: " + venta.monto);
                     System.out.println("**************************************");
-                    System.out.println("¿La información ingresada es correcta? (si/no)");
-                    String opcion = sc.next();
+                    String opcion = leerCadena("¿La información ingresada es correcta? (si/no)");
 
                     if (opcion.equals("si")) {
                         facturas.add(venta);

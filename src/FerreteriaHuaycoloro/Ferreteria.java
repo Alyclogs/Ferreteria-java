@@ -76,7 +76,10 @@ public class Ferreteria {
             }
         } while (!false);
     }
-
+    
+    /*
+        Declaramos métodos que retornan la lectura de valores según corresponda
+    */
     public static int leerNumero(String mensaje) {
         Scanner sc = new Scanner(System.in);
         System.out.println(mensaje);

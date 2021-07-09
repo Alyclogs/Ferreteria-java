@@ -89,7 +89,7 @@ public class IniciarListas {
 
         Productos p14 = new Productos();
         p14.ID = 9883;
-        p14.nombre = "Amarres de nylon";
+        p14.nombre = "Amarres de nailon"; //Se coloca el nombre escrito erróneamente a propósito para luego modificarlo con la función modificar producto
         p14.precio = 17.7;
         p14.cant = 7;
 
@@ -125,5 +125,6 @@ public class IniciarListas {
         f1.monto = 27.9;
 
         facturas.add(f1);
+        //Hay solo una factura suponiendo que el sistema se implementó recientemente
     }
 }

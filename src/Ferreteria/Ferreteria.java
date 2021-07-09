@@ -36,7 +36,7 @@ public class Ferreteria {
                 Llamamos al método elegirFuncion para
                 permitir al usuario elegir la función del menú
              */
-            int elegir = elegirFuncion();
+            int elegir = leerNumero("Ingrese el número de función a operar");
             /*
                 Según la opción que se elija, se llamará a sus
                 métodos respectivos
@@ -77,13 +77,16 @@ public class Ferreteria {
         } while (!false);
     }
 
-    /*
-        Definimos el método elegirFuncion para leer la opción elegida por
-        el usuario
-     */
-    public static int elegirFuncion() {
+    public static int leerNumero(String mensaje) {
         Scanner sc = new Scanner(System.in);
+        System.out.println(mensaje);
         return sc.nextInt();
+    }
+    
+    public static String leerCadena(String msg) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(msg);
+        return sc.nextLine();
     }
 
     /*
@@ -96,7 +99,6 @@ public class Ferreteria {
         System.out.println("1: Lista de productos \n2: Agregar producto \n3: Eliminar producto \n"
                 + "4: Modificar producto \n5: Mostrar facturas \n6: Realizar una factura \n7: Salir");
         System.out.println("==============================================================");
-        System.out.println("Ingrese el número de función a operar");
     }
 
 }

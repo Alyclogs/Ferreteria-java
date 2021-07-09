@@ -2,6 +2,8 @@ package Ferreteria;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import static Ferreteria.Ferreteria.leerNumero;
+import static Ferreteria.Ferreteria.leerCadena;
 
 public class Inventario {
 
@@ -15,14 +17,11 @@ public class Inventario {
         System.out.println("Ha seleccionado agregar productos");
         Scanner sc = new Scanner(System.in);
         Scanner sd = new Scanner(System.in);
-        System.out.println("Ingrese el ID del producto:");
-        int ID = sc.nextInt();
-        System.out.println("Ingrese el nombre del producto:");
-        String nombre = sd.nextLine();
+        int ID = leerNumero("Ingrese el ID del producto:");
+        String nombre = leerCadena("Ingrese el nombre del producto:");
         System.out.println("Ingrese el precio unitario del producto:");
         double precio = sd.nextDouble();
-        System.out.println("Ingrese stock");
-        int cant = sc.nextInt();
+        int cant = leerNumero("Ingrese stock");
         /*
             Definimos un objeto de la clase Productos al cual llamaremos producto,
             que se encargará de registrar los datos ingresados en la lista de
@@ -43,18 +42,15 @@ public class Inventario {
      */
     public static void eliminarProducto(ArrayList<Productos> inventario) {
         System.out.println("Ha seleccionado eliminar producto");
-        System.out.println("Ingrese el ID del producto:");
-        Scanner sc = new Scanner(System.in);
-        int ID = sc.nextInt();
+        int ID = leerNumero("Ingrese el ID del producto:");
         for (int i = 0; i < inventario.size(); i++) {
             Productos producto = inventario.get(i);
             if (producto.ID == ID) {
-                System.out.println("¿Está seguro que desea eliminar el producto " + producto.nombre + "? (si/no)");
-                String opcion = sc.next();
+                String opcion = leerCadena("¿Está seguro que desea eliminar el producto " + producto.nombre + "? (si/no)");
 
                 if (opcion.equals("si")) {
                     inventario.remove(i);
-                    System.out.println("¡Producto eliminado correctamente!");
+                    System.out.println("¡Producto " + producto.nombre + " eliminado correctamente!");
                     return;
                 } else {
                     System.out.println("Ha cancelado la operación");
@@ -80,18 +76,32 @@ public class Inventario {
             Productos producto = inventario.get(i);
             if (producto.ID == ID) {
                 System.out.println("Ha seleccionado el producto " + producto.nombre);
-                System.out.println("Ingrese un nuevo ID:");
-                producto.ID = sc.nextInt();
+                int opc = leerNumero("Ingrese atributo a modificar: (1)ID (2)Nombre (3)Precio (4)Stock");
 
-                System.out.println("Ingrese un nuevo nombre de producto");
-                producto.nombre = sd.nextLine();
+                switch (opc) {
+                    case 1:
+                        producto.ID = leerNumero("Ingrese un nuevo ID:");
+                        break;
 
-                System.out.println("Ingrese el precio unitario del producto");
-                producto.precio = sc.nextDouble();
+                    case 2:
+                        System.out.println("Ingrese un nuevo nombre de producto");
+                        producto.nombre = sd.nextLine();
+                        break;
 
-                System.out.println("Ingrese nuevo stock");
-                producto.cant = sc.nextInt();
+                    case 3:
+                        System.out.println("Ingrese el precio unitario del producto");
+                        producto.precio = sc.nextDouble();
+                        break;
 
+                    case 4:
+                        System.out.println("Ingrese nuevo stock");
+                        producto.cant = sc.nextInt();
+                        break;
+
+                    default:
+                        System.out.println("La opción no existe!");
+                        return;
+                }
                 System.out.println("Producto modificado correctamente");
                 return;
             }

@@ -1,6 +1,6 @@
 package FerreteriaHuaycoloro;
-//Importamos la clase ArrayList para trabajar con arrays
 
+//Importamos la clase ArrayList para trabajar con arrays
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,10 +21,10 @@ public class Ferreteria {
             de facturas
          */
         IniciarListas.iniciar(inventario);
-        IniciarListas.iniFacturas(facturas, inventario);
+        IniciarListas.iniFacturas(facturas);
         /*
-            El ciclo se repetirá hasta que no hayan datos para
-            mostrar
+            El ciclo se repetirá hasta que no haya nada para
+            retornar
          */
         do {
             /*
@@ -59,7 +59,7 @@ public class Ferreteria {
                     break;
 
                 case 5:
-                    MostrarListas.mostrarFacturas(facturas, inventario);
+                    MostrarListas.mostrarFacturas(facturas);
                     break;
 
                 case 6:
@@ -100,8 +100,8 @@ public class Ferreteria {
         System.out.println();
         System.out.println("=========== Bienvenido a la Ferretería Huaycoloro ===========");
         System.out.println("1: Lista de productos \n2: Agregar producto \n3: Eliminar producto \n"
-                + "4: Modificar producto \n5: Mostrar facturas \n6: Realizar una factura \n7: Salir");
-        System.out.println("==============================================================");
+                + "4: Modificar producto \n5: Lista de facturas \n6: Realizar una factura \n7: Salir");
+        System.out.println("=============================================================");
     }
 
 }

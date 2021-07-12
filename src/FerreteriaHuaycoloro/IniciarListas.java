@@ -89,7 +89,7 @@ public class IniciarListas {
 
         Productos p14 = new Productos();
         p14.ID = 9883;
-        p14.nombre = "Amarres de nailon"; //Se coloca el nombre escrito erróneamente a propósito para luego modificarlo con la función modificar producto
+        p14.nombre = "Amarres de nylon";
         p14.precio = 17.7;
         p14.cant = 7;
 
@@ -116,7 +116,7 @@ public class IniciarListas {
         inventario.add(p15);
     }
 
-    public static void iniFacturas(ArrayList<Facturas> facturas, ArrayList<Productos> inventario) {
+    public static void iniFacturas(ArrayList<Facturas> facturas) {
         Facturas f1 = new Facturas();
         f1.nFactura = 1;
         f1.nomCliente = "Marco";

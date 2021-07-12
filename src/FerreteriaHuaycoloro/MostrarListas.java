@@ -22,7 +22,7 @@ public class MostrarListas {
         }
     }
 
-    public static void mostrarFacturas(ArrayList<Facturas> facturas, ArrayList<Productos> inventario) {
+    public static void mostrarFacturas(ArrayList<Facturas> facturas) {
         System.out.println();
         System.out.println("================================ Lista de facturas ===================================");
         System.out.println("Nro de factura" + "\t" + "Cliente" + "\t\t" + "Producto" + "\t"
